@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — Teny Dave Book Marketing</title>
+    <meta name="description" content="Explore comprehensive book marketing services from Teny Dave. From launch campaigns and author branding to social media strategy and reader engagement.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--ivory);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+        ul, ol { list-style: none; }
+
+        /* ===== VARIABLES ===== */
+        :root {
+            --bg-primary: #090909;
+            --bg-secondary: #211A16;
+            --bg-tertiary: #17120F;
+            --bronze: #A87945;
+            --bronze-light: #C49A6C;
+            --bronze-dark: #8B6235;
+            --lavender: #B8A4D4;
+            --lavender-muted: #9688B0;
+            --ivory: #F5F2ED;
+            --white: #FFFFFF;
+            --text-dim: #8A8480;
+            --text-muted: #6B6560;
+            --border-subtle: rgba(168, 121, 69, 0.15);
+            --border-light: rgba(245, 242, 237, 0.08);
+            --card-bg: rgba(33, 26, 22, 0.6);
+            --card-hover: rgba(33, 26, 22, 0.9);
+            --shadow-soft: 0 4px 30px rgba(0,0,0,0.3);
+            --shadow-elevated: 0 18px 60px rgba(0,0,0,0.55);
+            --shadow-glow: 0 0 50px rgba(168, 121, 69, 0.1);
+            --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-elegant: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 { font-family: 'Playfair Display', 'Georgia', serif; color: var(--white); font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); letter-spacing: -0.01em; }
+        h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); letter-spacing: -0.005em; }
+        h3 { font-size: clamp(1.3rem, 2.2vw, 1.8rem); }
+        h4 { font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
+        p { font-weight: 300; line-height: 1.8; color: var(--ivory); }
+        .font-serif-italic { font-family: 'Cormorant Garamond', 'Georgia', serif; font-style: italic; }
+
+        /* ===== LAYOUT ===== */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+        section { padding: clamp(70px, 10vw, 130px) 0; }
+
+        /* ===== SECTION LABEL ===== */
+        .section-label {
+            display: inline-flex; align-items: center; gap: 12px;
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em;
+            text-transform: uppercase; color: var(--bronze); margin-bottom: 20px;
+        }
+        .section-label::before {
+            content: ''; display: block; width: 30px; height: 1px; background: var(--bronze);
+        }
+
+        /* ===== PAGE TRANSITION OVERLAY ===== */
+        .page-transition-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-primary); z-index: 10000;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.4s var(--transition-elegant);
+        }
+        .page-transition-overlay.active { opacity: 1; pointer-events: all; }
+
+        /* ===== HEADER ===== */
+        .site-header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 20px 0;
+            transition: background 0.4s var(--transition-elegant), padding 0.4s var(--transition-elegant), box-shadow 0.4s var(--transition-elegant);
+        }
+        .site-header.scrolled {
+            background: rgba(9, 9, 9, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            padding: 14px 0; box-shadow: 0 1px 30px rgba(0,0,0,0.4);
+        }
+        .nav-wrapper {
+            max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; }
+        .nav-logo img { height: 38px; width: auto; }
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif; font-size: 1.05rem;
+            font-weight: 600; color: var(--white); letter-spacing: 0.02em;
+        }
+        .nav-links { display: flex; align-items: center; gap: clamp(20px, 2.5vw, 38px); }
+        .nav-links a {
+            font-size: 0.82rem; font-weight: 400; letter-spacing: 0.04em;
+            color: var(--text-dim); position: relative; padding: 4px 0;
+            transition: color 0.3s var(--transition-smooth);
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px;
+            background: var(--bronze); transition: width 0.35s var(--transition-smooth);
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--white); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links .nav-contact-btn {
+            background: transparent; border: 1px solid var(--border-subtle);
+            padding: 8px 20px; border-radius: 2px; color: var(--ivory);
+            transition: all 0.35s var(--transition-smooth);
+        }
+        .nav-links .nav-contact-btn::after { display: none; }
+        .nav-links .nav-contact-btn:hover {
+            border-color: var(--bronze); color: var(--white);
+            background: rgba(168, 121, 69, 0.08);
+        }
+
+        /* ===== MOBILE NAV ===== */
+        .mobile-menu-toggle {
+            display: none; flex-direction: column; gap: 5px;
+            width: 28px; padding: 4px 0; z-index: 1100;
+        }
+        .mobile-menu-toggle span {
+            display: block; width: 100%; height: 1.5px; background: var(--ivory);
+            transition: all 0.35s var(--transition-smooth); transform-origin: center;
+        }
+        .mobile-menu-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .mobile-menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .mobile-menu-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+        .mobile-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh;
+            background: rgba(9, 9, 9, 0.97); backdrop-filter: blur(30px);
+            z-index: 1050; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 0;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.4s var(--transition-elegant);
+        }
+        .mobile-nav.open { opacity: 1; pointer-events: all; }
+        .mobile-nav a {
+            font-family: 'Playfair Display', serif; font-size: 1.6rem;
+            color: var(--ivory); padding: 16px 0; display: block;
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.4s var(--transition-smooth), transform 0.4s var(--transition-smooth), color 0.3s;
+        }
+        .mobile-nav.open a { opacity: 1; transform: translateY(0); }
+        .mobile-nav.open a:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-nav.open a:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-nav.open a:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-nav.open a:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-nav.open a:nth-child(5) { transition-delay: 0.3s; }
+        .mobile-nav.open a:nth-child(6) { transition-delay: 0.35s; }
+        .mobile-nav a:hover, .mobile-nav a.active { color: var(--bronze); }
+
+        /* ===== PAGE HERO (ENHANCED IMAGE CLARITY & WORD SPACING) ===== */
+        .page-hero {
+            position: relative; min-height: 70vh; display: flex; align-items: center;
+            justify-content: center; text-align: center; overflow: hidden;
+            padding: 160px 0 100px;
+        }
+        .page-hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            opacity: 0.42; transform: scale(1.02);
+            filter: brightness(0.85) contrast(1.05);
+        }
+        .page-hero-bg-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(9,9,9,0.75) 0%, rgba(9,9,9,0.4) 50%, rgba(9,9,9,0.9) 100%);
+        }
+        .page-hero-content { position: relative; z-index: 2; max-width: 820px; }
+        .page-hero-breadcrumb {
+            font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--text-dim); margin-bottom: 28px;
+            opacity: 0; transform: translateY(15px);
+            transition: opacity 0.6s 0.3s var(--transition-smooth), transform 0.6s 0.3s var(--transition-smooth);
+        }
+        .page-hero-breadcrumb.visible { opacity: 1; transform: translateY(0); }
+        .page-hero-breadcrumb span { color: var(--bronze); }
+        .page-hero h1 { margin-bottom: 24px; }
+        .page-hero h1 .hero-word {
+            display: inline-block;
+            margin-right: 0.28em;
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.5s var(--transition-smooth), transform 0.5s var(--transition-smooth);
+        }
+        .page-hero h1 .hero-word:last-child { margin-right: 0; }
+        .page-hero h1 .hero-word.visible { opacity: 1; transform: translateY(0); }
+        .page-hero-subtitle {
+            font-family: 'Cormorant Garamond', serif; font-style: italic;
+            font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-dim);
+            max-width: 600px; margin: 0 auto;
+            opacity: 0; transform: translateY(15px);
+            transition: opacity 0.6s 0.8s var(--transition-smooth), transform 0.6s 0.8s var(--transition-smooth);
+        }
+        .page-hero-subtitle.visible { opacity: 1; transform: translateY(0); }
+        .page-hero-line {
+            width: 0; height: 1px; background: var(--bronze);
+            margin: 30px auto 0; transition: width 0.8s 1s var(--transition-smooth);
+        }
+        .page-hero-line.visible { width: 60px; }
+
+        /* ===== SERVICES INTRO ===== */
+        .services-intro { background: var(--bg-primary); text-align: center; }
+        .services-intro-inner { max-width: 760px; margin: 0 auto; }
+        .services-intro h2 { margin-bottom: 20px; }
+        .services-intro p { color: var(--text-dim); font-size: 1.02rem; }
+
+        /* ===== SERVICE CATEGORY SECTIONS ===== */
+        .service-category { position: relative; border-bottom: 1px solid var(--border-light); }
+        .service-category:nth-child(odd) { background: var(--bg-primary); }
+        .service-category:nth-child(even) { background: var(--bg-secondary); }
+        
+        .service-cat-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 6vw, 80px); align-items: center;
+        }
+        .service-cat-grid.reverse { grid-template-areas: "img content"; }
+        .service-cat-grid.reverse .service-cat-img-wrapper { grid-area: img; }
+        .service-cat-grid.reverse .service-cat-content { grid-area: content; }
+
+        .service-cat-img-wrapper { position: relative; border-radius: 4px; overflow: hidden; }
+        .service-cat-img-wrapper img {
+            width: 100%; height: 480px; object-fit: cover;
+            filter: brightness(0.9) contrast(1.02);
+            transition: transform 0.7s var(--transition-smooth), filter 0.7s var(--transition-smooth);
+        }
+        .service-cat-img-wrapper:hover img {
+            transform: scale(1.03); filter: brightness(0.95) contrast(1.05);
+        }
+        
+        .service-cat-number {
+            position: absolute; top: -20px; right: 20px;
+            font-family: 'Playfair Display', serif; font-size: 6rem;
+            font-weight: 800; color: rgba(168, 121, 69, 0.08);
+            line-height: 1; pointer-events: none; user-select: none;
+        }
+        
+        .service-cat-content h2 { margin-bottom: 16px; }
+        .service-cat-desc { color: var(--text-dim); font-size: 1rem; margin-bottom: 24px; }
+        
+        .service-details-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+            margin-bottom: 28px;
+        }
+        .detail-bullet {
+            display: flex; align-items: flex-start; gap: 10px;
+            font-size: 0.88rem; color: var(--ivory);
+        }
+        .detail-bullet svg { flex-shrink: 0; color: var(--bronze); margin-top: 4px; }
+
+        .service-purpose {
+            background: rgba(168, 121, 69, 0.04); border-left: 2px solid var(--bronze);
+            padding: 16px 20px; margin-bottom: 28px; border-radius: 0 3px 3px 0;
+        }
+        .service-purpose-label {
+            font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--bronze-light); margin-bottom: 4px;
+        }
+        .service-purpose p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
+
+        .deliverables-container { margin-bottom: 30px; }
+        .deliverables-title {
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 12px;
+        }
+        .deliverables-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+        .deliverable-tag {
+            font-size: 0.78rem; color: var(--ivory); background: rgba(245, 242, 237, 0.05);
+            border: 1px solid var(--border-light); padding: 5px 12px; border-radius: 20px;
+        }
+
+        /* ===== SERVICES CTA ===== */
+        .services-cta { background: var(--bg-secondary); text-align: center; }
+        .services-cta-inner { max-width: 680px; margin: 0 auto; }
+        .services-cta h2 { margin-bottom: 20px; }
+        .services-cta p { color: var(--text-dim); margin-bottom: 36px; font-size: 1.02rem; }
+        .services-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .services-cta-email { margin-top: 28px; font-size: 0.88rem; color: var(--text-muted); }
+        .services-cta-email a { color: var(--bronze-light); transition: color 0.3s; }
+        .services-cta-email a:hover { color: var(--bronze); }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em;
+            padding: 14px 32px; border-radius: 2px; position: relative;
+            overflow: hidden; transition: all 0.4s var(--transition-smooth);
+        }
+        .btn-primary {
+            background: var(--bronze); color: var(--white); border: 1px solid var(--bronze);
+        }
+        .btn-primary::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 0; height: 0; border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s var(--transition-smooth), height 0.6s var(--transition-smooth);
+        }
+        .btn-primary:hover::before { width: 300px; height: 300px; }
+        .btn-primary::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+            transition: left 0.6s var(--transition-smooth);
+        }
+        .btn-primary:hover::after { left: 120%; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(168, 121, 69, 0.25); }
+        .btn-primary:active { transform: translateY(-1px); }
+        .btn-secondary {
+            background: transparent; color: var(--ivory);
+            border: 1px solid rgba(245, 242, 237, 0.2);
+        }
+        .btn-secondary:hover {
+            border-color: var(--bronze); color: var(--white);
+            background: rgba(168, 121, 69, 0.06); transform: translateY(-3px);
+        }
+        .btn-secondary:active { transform: translateY(-1px); }
+        .btn-outline-bronze {
+            background: transparent; color: var(--bronze-light);
+            border: 1px solid var(--border-subtle);
+        }
+        .btn-outline-bronze:hover {
+            border-color: var(--bronze); color: var(--white);
+            background: rgba(168, 121, 69, 0.06); transform: translateY(-2px);
+        }
+        .btn-text {
+            background: none; border: none; color: var(--bronze-light);
+            padding: 8px 0; font-size: 0.85rem; font-weight: 500;
+            letter-spacing: 0.04em; position: relative;
+        }
+        .btn-text::after {
+            content: ''; position: absolute; bottom: 4px; left: 0;
+            width: 100%; height: 1px; background: var(--bronze);
+            transform: scaleX(0); transform-origin: right;
+            transition: transform 0.35s var(--transition-smooth);
+        }
+        .btn-text:hover::after { transform: scaleX(1); transform-origin: left; }
+        .btn-text:hover { color: var(--white); }
+        .btn-arrow {
+            display: inline-block; transition: transform 0.3s var(--transition-smooth);
+        }
+        .btn:hover .btn-arrow { transform: translateX(4px); }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--bg-tertiary); border-top: 1px solid var(--border-light);
+            padding: clamp(60px, 8vw, 90px) 0 0;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: clamp(30px, 4vw, 60px); margin-bottom: 60px;
+        }
+        .footer-brand .nav-logo { margin-bottom: 18px; }
+        .footer-brand p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.75; }
+        .footer-col h4 {
+            font-family: 'Inter', sans-serif; font-size: 0.75rem;
+            font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--bronze); margin-bottom: 20px;
+        }
+        .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+        .footer-col a {
+            font-size: 0.88rem; color: var(--text-dim);
+            transition: color 0.3s var(--transition-smooth);
+        }
+        .footer-col a:hover { color: var(--ivory); }
+        .footer-contact-item {
+            display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px;
+        }
+        .footer-contact-item svg { flex-shrink: 0; margin-top: 3px; }
+        .footer-contact-item a { font-size: 0.88rem; color: var(--bronze-light); }
+        .footer-contact-item a:hover { color: var(--white); }
+        .footer-contact-note { font-size: 0.8rem; color: var(--text-muted); line-height: 1.65; margin-top: 10px; }
+        .footer-bottom {
+            border-top: 1px solid var(--border-light);
+            padding: 24px 0; display: flex; align-items: center;
+            justify-content: space-between; flex-wrap: wrap; gap: 10px;
+        }
+        .footer-bottom p { font-size: 0.78rem; color: var(--text-muted); }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .anim-in {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth);
+        }
+        .anim-in.from-left { transform: translateX(-30px); }
+        .anim-in.from-right { transform: translateX(30px); }
+        .anim-in.scale-in { transform: scale(0.95); }
+        .anim-in.visible { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .service-cat-grid, .service-cat-grid.reverse {
+                grid-template-columns: 1fr; grid-template-areas: none !important; gap: 30px;
+            }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .page-hero { min-height: 55vh; padding: 130px 0 70px; }
+            .service-details-grid { grid-template-columns: 1fr; }
+            .service-cat-img-wrapper img { height: 320px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            section { padding: 60px 0; }
+            .page-hero { min-height: 50vh; padding: 120px 0 60px; }
+        }
+
+        /* ===== REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+            .anim-in { opacity: 1; transform: none; }
+            .page-hero h1 .hero-word { opacity: 1; transform: none; }
+            .page-hero-breadcrumb, .page-hero-subtitle { opacity: 1; transform: none; }
+            .page-hero-line { width: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay" id="pageTransition"></div>
+
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="nav-wrapper">
+            <a href="index.html" class="nav-logo">
+                <img src="Logo.png" alt="Teny Dave Book Marketing Logo">
+                <span class="nav-logo-text">Teny Dave</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about-us.html">About Us</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="faqs.html">FAQs</a>
+                <a href="contact-us.html" class="nav-contact-btn">Contact Us</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="contact-us.html">Contact Us</a>
+    </div>
+
+    <!-- Page Hero (Rich Visible Background Photography) -->
+    <section class="page-hero">
+        <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="page-hero-bg-overlay"></div>
+        <div class="page-hero-content container">
+            <div class="page-hero-breadcrumb" id="heroBreadcrumb">Home / <span>Services</span></div>
+            <h1 id="pageHeroHeading">Our Complete Book Marketing Service Catalogue</h1>
+            <p class="page-hero-subtitle font-serif-italic" id="pageHeroSubtitle">Strategic, tailored solutions designed to give your book the audience it deserves.</p>
+            <div class="page-hero-line" id="pageHeroLine"></div>
+        </div>
+    </section>
+
+    <!-- Services Intro -->
+    <section class="services-intro">
+        <div class="container">
+            <div class="services-intro-inner anim-in">
+                <span class="section-label">Tailored Solutions</span>
+                <h2>Professional Marketing Services Built for Authors</h2>
+                <p>Every book has its own personality, audience, and publishing path. We offer a comprehensive suite of marketing services that can be deployed individually or combined into a cohesive campaign to elevate your book's reach, build your author platform, and maximize reader engagement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 01: Book Marketing Strategy -->
+    <section class="service-category">
+        <div class="container">
+            <div class="service-cat-grid">
+                <div class="service-cat-img-wrapper anim-in from-left">
+                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1000&q=80" alt="Book Marketing Strategy">
+                    <div class="service-cat-number">01</div>
+                </div>
+                <div class="service-cat-content anim-in from-right">
+                    <span class="section-label">Category 01</span>
+                    <h2>Book Marketing Strategy</h2>
+                    <p class="service-cat-desc">A roadmap is essential for any successful promotion. We analyze your book's unique hooks, identify high-opportunity reader segments, and build an actionable campaign strategy.</p>
+                    
+                    <div class="service-details-grid">
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Custom campaign roadmaps</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Target reader profile identification</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Competitive market analysis</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Promotional messaging development</span>
+                        </div>
+                    </div>
+
+                    <div class="service-purpose">
+                        <div class="service-purpose-label">Why This Matters</div>
+                        <p>Without a clear strategy, marketing efforts risk being fragmented and ineffective. Strategic planning ensures every promotional action serves your long-term publishing goals.</p>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <div class="deliverables-title">Potential Deliverables</div>
+                        <div class="deliverables-pills">
+                            <span class="deliverable-tag">Strategy Document</span>
+                            <span class="deliverable-tag">Audience Persona Profile</span>
+                            <span class="deliverable-tag">Campaign Timeline</span>
+                        </div>
+                    </div>
+
+                    <a href="contact-us.html" class="btn btn-outline-bronze">Discuss This Service <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 02: Book Promotion & Visibility -->
+    <section class="service-category">
+        <div class="container">
+            <div class="service-cat-grid reverse">
+                <div class="service-cat-img-wrapper anim-in from-right">
+                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=1000&q=80" alt="Book Promotion & Visibility">
+                    <div class="service-cat-number">02</div>
+                </div>
+                <div class="service-cat-content anim-in from-left">
+                    <span class="section-label">Category 02</span>
+                    <h2>Book Promotion & Visibility</h2>
+                    <p class="service-cat-desc">Helping your book rise above the noise through multi-channel promotional activations, feature placements, and targeted reader outreach campaigns.</p>
+                    
+                    <div class="service-details-grid">
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Multi-channel campaign coordination</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Genre-specific discovery tactics</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Backlist book revitalization</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Cross-promotional coordination</span>
+                        </div>
+                    </div>
+
+                    <div class="service-purpose">
+                        <div class="service-purpose-label">Why This Matters</div>
+                        <p>Discoverability is the single largest hurdle self-published and independent authors face today. Active promotion drives consistent reader awareness.</p>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <div class="deliverables-title">Potential Deliverables</div>
+                        <div class="deliverables-pills">
+                            <span class="deliverable-tag">Promotional Plan</span>
+                            <span class="deliverable-tag">Partner Outreach List</span>
+                            <span class="deliverable-tag">Feature Guidelines</span>
+                        </div>
+                    </div>
+
+                    <a href="contact-us.html" class="btn btn-outline-bronze">Discuss This Service <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 03: Social Media Marketing -->
+    <section class="service-category">
+        <div class="container">
+            <div class="service-cat-grid">
+                <div class="service-cat-img-wrapper anim-in from-left">
+                    <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1000&q=80" alt="Social Media Marketing">
+                    <div class="service-cat-number">03</div>
+                </div>
+                <div class="service-cat-content anim-in from-right">
+                    <span class="section-label">Category 03</span>
+                    <h2>Social Media Marketing</h2>
+                    <p class="service-cat-desc">Building an engaging, authentic social media presence that connects with literary communities without taking over your writing time.</p>
+                    
+                    <div class="service-details-grid">
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Platform strategy (Instagram, BookTok, Facebook)</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Content calendar development</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Visual asset templates</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Audience engagement strategies</span>
+                        </div>
+                    </div>
+
+                    <div class="service-purpose">
+                        <div class="service-purpose-label">Why This Matters</div>
+                        <p>Social media allows authors to build personal, ongoing relationships with readers, turning casual buyers into devoted lifetime fans.</p>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <div class="deliverables-title">Potential Deliverables</div>
+                        <div class="deliverables-pills">
+                            <span class="deliverable-tag">30-Day Content Calendar</span>
+                            <span class="deliverable-tag">Canva Templates</span>
+                            <span class="deliverable-tag">Hashtag Bank</span>
+                        </div>
+                    </div>
+
+                    <a href="contact-us.html" class="btn btn-outline-bronze">Discuss This Service <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 04: Author Branding -->
+    <section class="service-category">
+        <div class="container">
+            <div class="service-cat-grid reverse">
+                <div class="service-cat-img-wrapper anim-in from-right">
+                    <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1000&q=80" alt="Author Branding">
+                    <div class="service-cat-number">04</div>
+                </div>
+                <div class="service-cat-content anim-in from-left">
+                    <span class="section-label">Category 04</span>
+                    <h2>Author Branding</h2>
+                    <p class="service-cat-desc">Crafting a distinct visual and literary identity that sets you apart as a professional, trustworthy author in your market.</p>
+                    
+                    <div class="service-details-grid">
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Brand identity guidelines</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Professional author bio copywriting</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Visual style & color palette selection</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Author tagline & positioning</span>
+                        </div>
+                    </div>
+
+                    <div class="service-purpose">
+                        <div class="service-purpose-label">Why This Matters</div>
+                        <p>Readers fall in love with authors, not just individual books. A strong brand gives you lasting authority across your entire publishing career.</p>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <div class="deliverables-title">Potential Deliverables</div>
+                        <div class="deliverables-pills">
+                            <span class="deliverable-tag">Brand Style Guide</span>
+                            <span class="deliverable-tag">Author Bio Suite</span>
+                            <span class="deliverable-tag">Media Kit Framework</span>
+                        </div>
+                    </div>
+
+                    <a href="contact-us.html" class="btn btn-outline-bronze">Discuss This Service <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 05: Book Launch Marketing -->
+    <section class="service-category">
+        <div class="container">
+            <div class="service-cat-grid">
+                <div class="service-cat-img-wrapper anim-in from-left">
+                    <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=1000&q=80" alt="Book Launch Marketing">
+                    <div class="service-cat-number">05</div>
+                </div>
+                <div class="service-cat-content anim-in from-right">
+                    <span class="section-label">Category 05</span>
+                    <h2>Book Launch Marketing</h2>
+                    <p class="service-cat-desc">A structured, high-impact release campaign engineered to build pre-orders, drive release day excitement, and sustain sales momentum.</p>
+                    
+                    <div class="service-details-grid">
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Pre-launch audience building</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Launch week sequence coordination</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>ARC (Advanced Reader Copy) strategy</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Post-launch follow-up plan</span>
+                        </div>
+                    </div>
+
+                    <div class="service-purpose">
+                        <div class="service-purpose-label">Why This Matters</div>
+                        <p>The first few weeks after a book is released dictate its momentum on retail algorithms. A coordinated launch maximizes your window of opportunity.</p>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <div class="deliverables-title">Potential Deliverables</div>
+                        <div class="deliverables-pills">
+                            <span class="deliverable-tag">Launch Roadmap</span>
+                            <span class="deliverable-tag">Email Launch Sequence</span>
+                            <span class="deliverable-tag">ARC Instructions</span>
+                        </div>
+                    </div>
+
+                    <a href="contact-us.html" class="btn btn-outline-bronze">Discuss This Service <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 06: Content Marketing & Copywriting -->
+    <section class="service-category">
+        <div class="container">
+            <div class="service-cat-grid reverse">
+                <div class="service-cat-img-wrapper anim-in from-right">
+                    <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1000&q=80" alt="Content Marketing & Copywriting">
+                    <div class="service-cat-number">06</div>
+                </div>
+                <div class="service-cat-content anim-in from-left">
+                    <span class="section-label">Category 06</span>
+                    <h2>Content Marketing & Copywriting</h2>
+                    <p class="service-cat-desc">Persuasive, eloquent copy for Amazon blurbs, press releases, newsletters, and promotional assets that hooks potential readers instantly.</p>
+                    
+                    <div class="service-details-grid">
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Optimized Amazon & book descriptions</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Newsletter copy & welcome sequences</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Press releases & media pitches</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Blog articles & reader guest posts</span>
+                        </div>
+                    </div>
+
+                    <div class="service-purpose">
+                        <div class="service-purpose-label">Why This Matters</div>
+                        <p>Great book descriptions convert browsing readers into paying buyers. Words matter just as much on your sales page as they do inside your book.</p>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <div class="deliverables-title">Potential Deliverables</div>
+                        <div class="deliverables-pills">
+                            <span class="deliverable-tag">Book Description Suite</span>
+                            <span class="deliverable-tag">3 Email Newsletters</span>
+                            <span class="deliverable-tag">Press Release</span>
+                        </div>
+                    </div>
+
+                    <a href="contact-us.html" class="btn btn-outline-bronze">Discuss This Service <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 07: Reader Engagement -->
+    <section class="service-category">
+        <div class="container">
+            <div class="service-cat-grid">
+                <div class="service-cat-img-wrapper anim-in from-left">
+                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1000&q=80" alt="Reader Engagement">
+                    <div class="service-cat-number">07</div>
+                </div>
+                <div class="service-cat-content anim-in from-right">
+                    <span class="section-label">Category 07</span>
+                    <h2>Reader Engagement</h2>
+                    <p class="service-cat-desc">Nurturing an active reader community through reader magnet incentives, newsletter list building, and interactive reader campaigns.</p>
+                    
+                    <div class="service-details-grid">
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Reader magnet creation guidance</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Newsletter subscriber growth strategy</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Book club discussion kit development</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Strengthening author-reader ties</span>
+                        </div>
+                    </div>
+
+                    <div class="service-purpose">
+                        <div class="service-purpose-label">Why This Matters</div>
+                        <p>An email list is an author's single most valuable business asset. Direct access to your readers guarantees sustainable long-term success.</p>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <div class="deliverables-title">Potential Deliverables</div>
+                        <div class="deliverables-pills">
+                            <span class="deliverable-tag">Book Club Kit PDF</span>
+                            <span class="deliverable-tag">Reader Magnet Strategy</span>
+                            <span class="deliverable-tag">Funnel Concept</span>
+                        </div>
+                    </div>
+
+                    <a href="contact-us.html" class="btn btn-outline-bronze">Discuss This Service <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 08: Digital Marketing Support -->
+    <section class="service-category">
+        <div class="container">
+            <div class="service-cat-grid reverse">
+                <div class="service-cat-img-wrapper anim-in from-right">
+                    <img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&w=1000&q=80" alt="Digital Marketing Support">
+                    <div class="service-cat-number">08</div>
+                </div>
+                <div class="service-cat-content anim-in from-left">
+                    <span class="section-label">Category 08</span>
+                    <h2>Digital Marketing Support</h2>
+                    <p class="service-cat-desc">Technical and strategic assistance across digital publishing platforms, web touchpoints, and online distribution channels.</p>
+                    
+                    <div class="service-details-grid">
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Author Central optimization</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Goodreads author page setup</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Website content layout guidance</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Digital ecosystem audit</span>
+                        </div>
+                    </div>
+
+                    <div class="service-purpose">
+                        <div class="service-purpose-label">Why This Matters</div>
+                        <p>Ensuring your online presence is polished and professional reassures readers that your work is worth their investment of time and money.</p>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <div class="deliverables-title">Potential Deliverables</div>
+                        <div class="deliverables-pills">
+                            <span class="deliverable-tag">Platform Audit Report</span>
+                            <span class="deliverable-tag">Goodreads Setup</span>
+                            <span class="deliverable-tag">Link Tree Setup</span>
+                        </div>
+                    </div>
+
+                    <a href="contact-us.html" class="btn btn-outline-bronze">Discuss This Service <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 09: Author Platform Development -->
+    <section class="service-category">
+        <div class="container">
+            <div class="service-cat-grid">
+                <div class="service-cat-img-wrapper anim-in from-left">
+                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1000&q=80" alt="Author Platform Development">
+                    <div class="service-cat-number">09</div>
+                </div>
+                <div class="service-cat-content anim-in from-right">
+                    <span class="section-label">Category 09</span>
+                    <h2>Author Platform Development</h2>
+                    <p class="service-cat-desc">Building the long-term infrastructure required to sustain an author's ongoing career across multiple book releases.</p>
+                    
+                    <div class="service-details-grid">
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Comprehensive platform architecture</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Media kit & press page preparation</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Content distribution planning</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Long-term visibility strategy</span>
+                        </div>
+                    </div>
+
+                    <div class="service-purpose">
+                        <div class="service-purpose-label">Why This Matters</div>
+                        <p>A resilient author platform means each new book release builds upon the success of the last, compounding your audience size over time.</p>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <div class="deliverables-title">Potential Deliverables</div>
+                        <div class="deliverables-pills">
+                            <span class="deliverable-tag">Digital Media Kit</span>
+                            <span class="deliverable-tag">Platform Roadmap</span>
+                            <span class="deliverable-tag">Press One-Sheet</span>
+                        </div>
+                    </div>
+
+                    <a href="contact-us.html" class="btn btn-outline-bronze">Discuss This Service <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 10: Promotional Campaign Development -->
+    <section class="service-category">
+        <div class="container">
+            <div class="service-cat-grid reverse">
+                <div class="service-cat-img-wrapper anim-in from-right">
+                    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1000&q=80" alt="Promotional Campaign Development">
+                    <div class="service-cat-number">10</div>
+                </div>
+                <div class="service-cat-content anim-in from-left">
+                    <span class="section-label">Category 10</span>
+                    <h2>Promotional Campaign Development</h2>
+                    <p class="service-cat-desc">Time-sensitive, targeted campaigns built for seasonal pushes, award considerations, price promotions, or holiday sales.</p>
+                    
+                    <div class="service-details-grid">
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Seasonal promotional pushes</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Price discount event strategy</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Holiday gift guide outreach</span>
+                        </div>
+                        <div class="detail-bullet">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Targeted audience activations</span>
+                        </div>
+                    </div>
+
+                    <div class="service-purpose">
+                        <div class="service-purpose-label">Why This Matters</div>
+                        <p>Spur-of-the-moment bursts of promotional activity keep older titles relevant and capture reader interest during peak buying seasons.</p>
+                    </div>
+
+                    <div class="deliverables-container">
+                        <div class="deliverables-title">Potential Deliverables</div>
+                        <div class="deliverables-pills">
+                            <span class="deliverable-tag">Promo Action Plan</span>
+                            <span class="deliverable-tag">Discount Graphics</span>
+                            <span class="deliverable-tag">Copy Assets</span>
+                        </div>
+                    </div>
+
+                    <a href="contact-us.html" class="btn btn-outline-bronze">Discuss This Service <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services CTA -->
+    <section class="services-cta">
+        <div class="container">
+            <div class="services-cta-inner anim-in">
+                <span class="section-label">Let's Work Together</span>
+                <h2>Ready to Discuss Your Book Marketing Needs?</h2>
+                <p>Every author's path is unique. Get in touch today to explore which services are best suited for your book, budget, and publishing goals.</p>
+                <div class="services-cta-buttons">
+                    <a href="contact-us.html" class="btn btn-primary">Contact Us <span class="btn-arrow">→</span></a>
+                    <a href="pricing.html" class="btn btn-secondary">View Our Pricing</a>
+                </div>
+                <p class="services-cta-email">Or email us directly at <a href="mailto:contact.tenydave18@gmail.com">contact.tenydave18@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img src="Logo.png" alt="Teny Dave Book Marketing Logo">
+                        <span class="nav-logo-text">Teny Dave</span>
+                    </a>
+                    <p>Professional book marketing services for independent authors, self-published writers, and debut storytellers. We help authors build visibility, strengthen their brands, and connect their books with the right readers.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Book Marketing Strategy</a></li>
+                        <li><a href="services.html">Author Branding</a></li>
+                        <li><a href="services.html">Book Launch Marketing</a></li>
+                        <li><a href="services.html">Social Media Marketing</a></li>
+                        <li><a href="services.html">Content Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A87945" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                        <a href="mailto:contact.tenydave18@gmail.com">contact.tenydave18@gmail.com</a>
+                    </div>
+                    <p class="footer-contact-note">We communicate exclusively through email. Send us a message anytime and we will respond promptly.</p>
+                    <a href="contact-us.html" class="btn-text" style="margin-top: 14px;">Send an Inquiry <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Teny Dave Book Marketing. All rights reserved.</p>
+                <p>Professional Book Marketing Services</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ===== PAGE TRANSITION ===== */
+        var pt = document.getElementById('pageTransition');
+        document.querySelectorAll('a[href$=".html"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var href = link.getAttribute('href');
+                if (href && href.indexOf('http') !== 0 && href.indexOf('mailto:') !== 0) {
+                    var current = window.location.pathname.split('/').pop() || 'index.html';
+                    if (href === current) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+                    e.preventDefault();
+                    if (pt) pt.classList.add('active');
+                    setTimeout(function() { window.location.href = href; }, 400);
+                }
+            });
+        });
+        window.addEventListener('load', function() { if (pt) pt.classList.remove('active'); });
+
+        /* ===== HEADER SCROLL ===== */
+        var header = document.getElementById('siteHeader');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 60) { header.classList.add('scrolled'); }
+            else { header.classList.remove('scrolled'); }
+        }, { passive: true });
+
+        /* ===== MOBILE NAV ===== */
+        var mobileToggle = document.getElementById('mobileMenuToggle');
+        var mobileNav = document.getElementById('mobileNav');
+        mobileToggle.addEventListener('click', function() {
+            this.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+        mobileNav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileToggle.classList.remove('open');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        /* ===== HERO ANIMATIONS ===== */
+        (function() {
+            var heading = document.getElementById('pageHeroHeading');
+            if (heading) {
+                var text = heading.textContent.trim();
+                var words = text.split(/\s+/);
+                heading.innerHTML = words.map(function(w) {
+                    return '<span class="hero-word">' + w + '</span>';
+                }).join(' ');
+                var heroWords = heading.querySelectorAll('.hero-word');
+                heroWords.forEach(function(word, i) {
+                    setTimeout(function() { word.classList.add('visible'); }, 300 + i * 60);
+                });
+            }
+            var breadcrumb = document.getElementById('heroBreadcrumb');
+            var subtitle = document.getElementById('pageHeroSubtitle');
+            var heroLine = document.getElementById('pageHeroLine');
+            setTimeout(function() { if (breadcrumb) breadcrumb.classList.add('visible'); }, 200);
+            setTimeout(function() { if (subtitle) subtitle.classList.add('visible'); }, 800);
+            setTimeout(function() { if (heroLine) heroLine.classList.add('visible'); }, 1000);
+        })();
+
+        /* ===== SCROLL REVEAL ===== */
+        (function() {
+            var animEls = document.querySelectorAll('.anim-in');
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+                animEls.forEach(function(el) { observer.observe(el); });
+            } else {
+                animEls.forEach(function(el) { el.classList.add('visible'); });
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Teny Dave Book Marketing</title>
+    <meta name="description" content="Get in touch with Teny Dave Book Marketing. Send us a message about your book, your goals, and how we can help you reach more readers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--ivory);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+        ul, ol { list-style: none; }
+
+        /* ===== VARIABLES ===== */
+        :root {
+            --bg-primary: #090909;
+            --bg-secondary: #211A16;
+            --bg-tertiary: #17120F;
+            --bronze: #A87945;
+            --bronze-light: #C49A6C;
+            --bronze-dark: #8B6235;
+            --lavender: #B8A4D4;
+            --lavender-muted: #9688B0;
+            --ivory: #F5F2ED;
+            --white: #FFFFFF;
+            --text-dim: #8A8480;
+            --text-muted: #6B6560;
+            --border-subtle: rgba(168, 121, 69, 0.15);
+            --border-light: rgba(245, 242, 237, 0.08);
+            --card-bg: rgba(33, 26, 22, 0.6);
+            --card-hover: rgba(33, 26, 22, 0.9);
+            --shadow-soft: 0 4px 30px rgba(0,0,0,0.3);
+            --shadow-elevated: 0 18px 60px rgba(0,0,0,0.55);
+            --shadow-glow: 0 0 50px rgba(168, 121, 69, 0.1);
+            --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-elegant: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 { font-family: 'Playfair Display', 'Georgia', serif; color: var(--white); font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); letter-spacing: -0.01em; }
+        h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); letter-spacing: -0.005em; }
+        h3 { font-size: clamp(1.3rem, 2.2vw, 1.8rem); }
+        h4 { font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
+        p { font-weight: 300; line-height: 1.8; color: var(--ivory); }
+        .font-serif-italic { font-family: 'Cormorant Garamond', 'Georgia', serif; font-style: italic; }
+
+        /* ===== LAYOUT ===== */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+        section { padding: clamp(70px, 10vw, 130px) 0; }
+
+        /* ===== SECTION LABEL ===== */
+        .section-label {
+            display: inline-flex; align-items: center; gap: 12px;
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em;
+            text-transform: uppercase; color: var(--bronze); margin-bottom: 20px;
+        }
+        .section-label::before {
+            content: ''; display: block; width: 30px; height: 1px; background: var(--bronze);
+        }
+
+        /* ===== PAGE TRANSITION OVERLAY ===== */
+        .page-transition-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-primary); z-index: 10000;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.4s var(--transition-elegant);
+        }
+        .page-transition-overlay.active { opacity: 1; pointer-events: all; }
+
+        /* ===== HEADER ===== */
+        .site-header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 20px 0;
+            transition: background 0.4s var(--transition-elegant), padding 0.4s var(--transition-elegant), box-shadow 0.4s var(--transition-elegant);
+        }
+        .site-header.scrolled {
+            background: rgba(9, 9, 9, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            padding: 14px 0; box-shadow: 0 1px 30px rgba(0,0,0,0.4);
+        }
+        .nav-wrapper {
+            max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; }
+        .nav-logo img { height: 38px; width: auto; }
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif; font-size: 1.05rem;
+            font-weight: 600; color: var(--white); letter-spacing: 0.02em;
+        }
+        .nav-links { display: flex; align-items: center; gap: clamp(20px, 2.5vw, 38px); }
+        .nav-links a {
+            font-size: 0.82rem; font-weight: 400; letter-spacing: 0.04em;
+            color: var(--text-dim); position: relative; padding: 4px 0;
+            transition: color 0.3s var(--transition-smooth);
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px;
+            background: var(--bronze); transition: width 0.35s var(--transition-smooth);
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--white); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links .nav-contact-btn {
+            background: var(--bronze); border: 1px solid var(--bronze);
+            padding: 8px 20px; border-radius: 2px; color: var(--white);
+            transition: all 0.35s var(--transition-smooth);
+        }
+        .nav-links .nav-contact-btn::after { display: none; }
+        .nav-links .nav-contact-btn:hover {
+            background: var(--bronze-light); border-color: var(--bronze-light);
+            transform: translateY(-2px); box-shadow: 0 6px 20px rgba(168, 121, 69, 0.2);
+        }
+
+        /* ===== MOBILE NAV ===== */
+        .mobile-menu-toggle {
+            display: none; flex-direction: column; gap: 5px;
+            width: 28px; padding: 4px 0; z-index: 1100;
+        }
+        .mobile-menu-toggle span {
+            display: block; width: 100%; height: 1.5px; background: var(--ivory);
+            transition: all 0.35s var(--transition-smooth); transform-origin: center;
+        }
+        .mobile-menu-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .mobile-menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .mobile-menu-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+        .mobile-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh;
+            background: rgba(9, 9, 9, 0.97); backdrop-filter: blur(30px);
+            z-index: 1050; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 0;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.4s var(--transition-elegant);
+        }
+        .mobile-nav.open { opacity: 1; pointer-events: all; }
+        .mobile-nav a {
+            font-family: 'Playfair Display', serif; font-size: 1.6rem;
+            color: var(--ivory); padding: 16px 0; display: block;
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.4s var(--transition-smooth), transform 0.4s var(--transition-smooth), color 0.3s;
+        }
+        .mobile-nav.open a { opacity: 1; transform: translateY(0); }
+        .mobile-nav.open a:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-nav.open a:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-nav.open a:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-nav.open a:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-nav.open a:nth-child(5) { transition-delay: 0.3s; }
+        .mobile-nav.open a:nth-child(6) { transition-delay: 0.35s; }
+        .mobile-nav a:hover, .mobile-nav a.active { color: var(--bronze); }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative; min-height: 70vh; display: flex; align-items: center;
+            justify-content: center; text-align: center; overflow: hidden;
+            padding: 160px 0 100px;
+        }
+        .page-hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            filter: blur(2px); opacity: 0.18; transform: scale(1.05);
+        }
+        .page-hero-bg-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(9,9,9,0.5) 40%, rgba(9,9,9,0.7) 70%, var(--bg-primary) 100%);
+        }
+        .page-hero-content { position: relative; z-index: 2; max-width: 860px; }
+        .page-hero-breadcrumb {
+            font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--text-dim); margin-bottom: 28px;
+            opacity: 0; transform: translateY(15px);
+            transition: opacity 0.6s 0.3s var(--transition-smooth), transform 0.6s 0.3s var(--transition-smooth);
+        }
+        .page-hero-breadcrumb.visible { opacity: 1; transform: translateY(0); }
+        .page-hero-breadcrumb span { color: var(--bronze); }
+        .page-hero h1 { margin-bottom: 24px; }
+        .page-hero h1 .hero-word {
+            display: inline-block; opacity: 0; transform: translateY(30px);
+            transition: opacity 0.5s var(--transition-smooth), transform 0.5s var(--transition-smooth);
+        }
+        .page-hero h1 .hero-word.visible { opacity: 1; transform: translateY(0); }
+        .page-hero-subtitle {
+            font-family: 'Cormorant Garamond', serif; font-style: italic;
+            font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-dim);
+            max-width: 620px; margin: 0 auto;
+            opacity: 0; transform: translateY(15px);
+            transition: opacity 0.6s 0.8s var(--transition-smooth), transform 0.6s 0.8s var(--transition-smooth);
+        }
+        .page-hero-subtitle.visible { opacity: 1; transform: translateY(0); }
+        .page-hero-line {
+            width: 0; height: 1px; background: var(--bronze);
+            margin: 30px auto 0; transition: width 0.8s 1s var(--transition-smooth);
+        }
+        .page-hero-line.visible { width: 60px; }
+
+        /* ===== CONTACT INTRO ===== */
+        .contact-intro { background: var(--bg-primary); text-align: center; }
+        .contact-intro-inner { max-width: 780px; margin: 0 auto; }
+        .contact-intro h2 { margin-bottom: 22px; }
+        .contact-intro p { color: var(--text-dim); font-size: 1.02rem; line-height: 1.85; }
+
+        /* ===== CONTACT MAIN SECTION ===== */
+        .contact-main { background: var(--bg-secondary); }
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 6vw, 80px); align-items: start;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form-wrapper { position: relative; }
+        .contact-form-wrapper h3 { margin-bottom: 8px; }
+        .contact-form-wrapper .form-subtitle {
+            font-size: 0.92rem; color: var(--text-dim); margin-bottom: 36px; line-height: 1.7;
+        }
+        .contact-form { display: flex; flex-direction: column; gap: 24px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; position: relative; }
+        .form-group label {
+            font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--text-dim);
+        }
+        .form-group label .required-star { color: var(--bronze); margin-left: 2px; }
+        .form-group input,
+        .form-group textarea {
+            width: 100%; background: rgba(9, 9, 9, 0.5);
+            border: 1px solid var(--border-light); border-radius: 3px;
+            padding: 14px 18px; color: var(--ivory);
+            font-family: 'Inter', sans-serif; font-size: 0.95rem;
+            font-weight: 300; line-height: 1.6;
+            transition: border-color 0.35s var(--transition-smooth), box-shadow 0.35s var(--transition-smooth), background 0.35s var(--transition-smooth);
+            outline: none;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: var(--text-muted); font-weight: 300; }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--bronze); background: rgba(9, 9, 9, 0.7);
+            box-shadow: 0 0 0 3px rgba(168, 121, 69, 0.08);
+        }
+        .form-group textarea { min-height: 160px; resize: vertical; }
+        .form-group input.error,
+        .form-group textarea.error { border-color: #C45C4A; }
+        .form-error-msg {
+            font-size: 0.78rem; color: #D4735F; margin-top: 2px;
+            display: none;
+        }
+        .form-group.has-error .form-error-msg { display: block; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .form-submit-row { margin-top: 8px; }
+        .form-submit-btn {
+            width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            font-size: 0.88rem; font-weight: 500; letter-spacing: 0.06em;
+            padding: 16px 32px; border-radius: 3px; position: relative;
+            overflow: hidden; background: var(--bronze); color: var(--white);
+            border: 1px solid var(--bronze);
+            transition: all 0.4s var(--transition-smooth);
+        }
+        .form-submit-btn::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 0; height: 0; border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s var(--transition-smooth), height 0.6s var(--transition-smooth);
+        }
+        .form-submit-btn:hover::before { width: 400px; height: 400px; }
+        .form-submit-btn::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+            transition: left 0.6s var(--transition-smooth);
+        }
+        .form-submit-btn:hover::after { left: 120%; }
+        .form-submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(168, 121, 69, 0.25);
+        }
+        .form-submit-btn:active { transform: translateY(-1px); }
+        .form-submit-btn:disabled {
+            opacity: 0.6; cursor: not-allowed; transform: none !important;
+            box-shadow: none !important;
+        }
+        .form-submit-btn .btn-arrow {
+            display: inline-block; transition: transform 0.3s var(--transition-smooth);
+        }
+        .form-submit-btn:hover .btn-arrow { transform: translateX(4px); }
+        .form-submit-btn .spinner {
+            display: none; width: 18px; height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: var(--white); border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        .form-submit-btn.loading .spinner { display: inline-block; }
+        .form-submit-btn.loading .btn-label,
+        .form-submit-btn.loading .btn-arrow { display: none; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Form feedback messages */
+        .form-feedback {
+            padding: 18px 22px; border-radius: 3px; margin-top: 8px;
+            font-size: 0.9rem; line-height: 1.65; display: none;
+        }
+        .form-feedback.success {
+            display: block; background: rgba(80, 140, 90, 0.12);
+            border: 1px solid rgba(80, 140, 90, 0.3); color: #A8D4A0;
+        }
+        .form-feedback.error {
+            display: block; background: rgba(196, 92, 74, 0.12);
+            border: 1px solid rgba(196, 92, 74, 0.3); color: #D4935F;
+        }
+
+        /* ===== CONTACT INFO SIDEBAR ===== */
+        .contact-sidebar { position: relative; }
+        .contact-photo-frame {
+            position: relative; border-radius: 4px; overflow: hidden;
+            margin-bottom: 36px;
+        }
+        .contact-photo-frame img {
+            width: 100%; height: 480px; object-fit: cover;
+            filter: brightness(0.92) contrast(1.02);
+            transition: transform 0.6s var(--transition-smooth), filter 0.6s var(--transition-smooth);
+        }
+        .contact-photo-frame:hover img {
+            transform: scale(1.02); filter: brightness(0.96) contrast(1.04);
+        }
+        .contact-photo-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            padding: 40px 28px 28px;
+            background: linear-gradient(0deg, rgba(9,9,9,0.85) 0%, rgba(9,9,9,0.4) 60%, transparent 100%);
+        }
+        .contact-photo-name {
+            font-family: 'Playfair Display', serif; font-size: 1.3rem;
+            color: var(--white); font-weight: 600; margin-bottom: 4px;
+        }
+        .contact-photo-role {
+            font-family: 'Cormorant Garamond', serif; font-style: italic;
+            font-size: 0.95rem; color: var(--bronze-light);
+        }
+        .contact-email-card {
+            background: var(--card-bg); border: 1px solid var(--border-light);
+            border-radius: 4px; padding: 32px 28px;
+            transition: border-color 0.35s var(--transition-smooth), box-shadow 0.35s var(--transition-smooth);
+        }
+        .contact-email-card:hover {
+            border-color: var(--border-subtle);
+            box-shadow: var(--shadow-glow);
+        }
+        .contact-email-card h4 { margin-bottom: 12px; }
+        .contact-email-card p {
+            font-size: 0.9rem; color: var(--text-dim); margin-bottom: 18px; line-height: 1.75;
+        }
+        .contact-email-link {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 1rem; font-weight: 500; color: var(--bronze-light);
+            transition: color 0.3s var(--transition-smooth), gap 0.3s var(--transition-smooth);
+        }
+        .contact-email-link:hover { color: var(--white); gap: 14px; }
+        .contact-email-link svg { flex-shrink: 0; }
+        .contact-note {
+            margin-top: 28px; padding: 22px 24px;
+            background: rgba(168, 121, 69, 0.04);
+            border-left: 2px solid var(--bronze);
+            border-radius: 0 3px 3px 0;
+        }
+        .contact-note p {
+            font-size: 0.85rem; color: var(--text-dim); line-height: 1.75;
+            font-style: italic; font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+        }
+
+        /* ===== CONTACT CLOSING ===== */
+        .contact-closing { background: var(--bg-primary); text-align: center; }
+        .contact-closing-inner { max-width: 680px; margin: 0 auto; }
+        .contact-closing h2 { margin-bottom: 18px; }
+        .contact-closing p { color: var(--text-dim); font-size: 1rem; margin-bottom: 12px; }
+        .contact-closing-email {
+            margin-top: 24px; font-size: 0.92rem; color: var(--text-muted);
+        }
+        .contact-closing-email a {
+            color: var(--bronze-light); text-decoration: underline;
+            text-underline-offset: 3px; transition: color 0.3s;
+        }
+        .contact-closing-email a:hover { color: var(--white); }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em;
+            padding: 14px 32px; border-radius: 2px; position: relative;
+            overflow: hidden; transition: all 0.4s var(--transition-smooth);
+        }
+        .btn-primary {
+            background: var(--bronze); color: var(--white); border: 1px solid var(--bronze);
+        }
+        .btn-primary::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 0; height: 0; border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s var(--transition-smooth), height 0.6s var(--transition-smooth);
+        }
+        .btn-primary:hover::before { width: 300px; height: 300px; }
+        .btn-primary::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+            transition: left 0.6s var(--transition-smooth);
+        }
+        .btn-primary:hover::after { left: 120%; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(168, 121, 69, 0.25); }
+        .btn-primary:active { transform: translateY(-1px); }
+        .btn-secondary {
+            background: transparent; color: var(--ivory);
+            border: 1px solid rgba(245, 242, 237, 0.2);
+        }
+        .btn-secondary:hover {
+            border-color: var(--bronze); color: var(--white);
+            background: rgba(168, 121, 69, 0.06); transform: translateY(-3px);
+        }
+        .btn-secondary:active { transform: translateY(-1px); }
+        .btn-text {
+            background: none; border: none; color: var(--bronze-light);
+            padding: 8px 0; font-size: 0.85rem; font-weight: 500;
+            letter-spacing: 0.04em; position: relative;
+        }
+        .btn-text::after {
+            content: ''; position: absolute; bottom: 4px; left: 0;
+            width: 100%; height: 1px; background: var(--bronze);
+            transform: scaleX(0); transform-origin: right;
+            transition: transform 0.35s var(--transition-smooth);
+        }
+        .btn-text:hover::after { transform: scaleX(1); transform-origin: left; }
+        .btn-text:hover { color: var(--white); }
+        .btn-arrow {
+            display: inline-block; transition: transform 0.3s var(--transition-smooth);
+        }
+        .btn:hover .btn-arrow { transform: translateX(4px); }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--bg-tertiary); border-top: 1px solid var(--border-light);
+            padding: clamp(60px, 8vw, 90px) 0 0;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: clamp(30px, 4vw, 60px); margin-bottom: 60px;
+        }
+        .footer-brand .nav-logo { margin-bottom: 18px; }
+        .footer-brand p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.75; }
+        .footer-col h4 {
+            font-family: 'Inter', sans-serif; font-size: 0.75rem;
+            font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--bronze); margin-bottom: 20px;
+        }
+        .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+        .footer-col a {
+            font-size: 0.88rem; color: var(--text-dim);
+            transition: color 0.3s var(--transition-smooth);
+        }
+        .footer-col a:hover { color: var(--ivory); }
+        .footer-contact-item {
+            display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px;
+        }
+        .footer-contact-item svg { flex-shrink: 0; margin-top: 3px; }
+        .footer-contact-item a { font-size: 0.88rem; color: var(--bronze-light); }
+        .footer-contact-item a:hover { color: var(--white); }
+        .footer-contact-note { font-size: 0.8rem; color: var(--text-muted); line-height: 1.65; margin-top: 10px; }
+        .footer-bottom {
+            border-top: 1px solid var(--border-light);
+            padding: 24px 0; display: flex; align-items: center;
+            justify-content: space-between; flex-wrap: wrap; gap: 10px;
+        }
+        .footer-bottom p { font-size: 0.78rem; color: var(--text-muted); }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .anim-in {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth);
+        }
+        .anim-in.from-left { transform: translateX(-30px); }
+        .anim-in.from-right { transform: translateX(30px); }
+        .anim-in.scale-in { transform: scale(0.95); }
+        .anim-in.visible { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.1s; }
+        .stagger-3 { transition-delay: 0.15s; }
+        .stagger-4 { transition-delay: 0.2s; }
+        .stagger-5 { transition-delay: 0.25s; }
+        .stagger-6 { transition-delay: 0.3s; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .contact-grid { gap: 50px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .page-hero { min-height: 55vh; padding: 130px 0 70px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .contact-sidebar { order: -1; }
+            .contact-photo-frame img { height: 360px; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            section { padding: 60px 0; }
+            .page-hero { min-height: 50vh; padding: 120px 0 60px; }
+            .contact-photo-frame img { height: 300px; }
+        }
+
+        /* ===== REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+            .anim-in { opacity: 1; transform: none; }
+            .page-hero h1 .hero-word { opacity: 1; transform: none; }
+            .page-hero-breadcrumb, .page-hero-subtitle { opacity: 1; transform: none; }
+            .page-hero-line { width: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay" id="pageTransition"></div>
+
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="nav-wrapper">
+            <a href="index.html" class="nav-logo">
+                <img src="Logo.png" alt="Teny Dave Book Marketing Logo">
+                <span class="nav-logo-text">Teny Dave</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about-us.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="faqs.html">FAQs</a>
+                <a href="contact-us.html" class="nav-contact-btn active">Contact Us</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="contact-us.html" class="active">Contact Us</a>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="page-hero-bg-overlay"></div>
+        <div class="page-hero-content container">
+            <div class="page-hero-breadcrumb" id="heroBreadcrumb">Home / <span>Contact Us</span></div>
+            <h1 id="pageHeroHeading">Let's Start a Conversation About Your Book Marketing Goals</h1>
+            <p class="page-hero-subtitle font-serif-italic" id="pageHeroSubtitle">Every great partnership begins with a simple message.</p>
+            <div class="page-hero-line" id="pageHeroLine"></div>
+        </div>
+    </section>
+
+    <!-- Contact Intro -->
+    <section class="contact-intro">
+        <div class="container">
+            <div class="contact-intro-inner anim-in">
+                <span class="section-label">Get in Touch</span>
+                <h2>Let's Start a Conversation About Your Book Marketing Goals.</h2>
+                <p>Whether you're preparing to launch a new book, looking to strengthen your author brand, or exploring ways to improve your book's visibility, I welcome the opportunity to learn more about your project. Please take a moment to share some details about your book and your goals, and I will respond with thoughtful, personalized guidance on how we might work together.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Main Section -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper anim-in from-left">
+                    <span class="section-label">Send a Message</span>
+                    <h3>Tell Us About Your Project</h3>
+                    <p class="form-subtitle">Fill out the form below with as much detail as you feel comfortable sharing. The more we know about your book and your goals, the better we can tailor our response to your specific needs.</p>
+
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mbggnkyz" method="POST">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Your Name <span class="required-star">*</span></label>
+                                <input type="text" id="contactName" name="name" placeholder="e.g. Jane Smith" required autocomplete="name">
+                                <span class="form-error-msg">Please enter your name.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address <span class="required-star">*</span></label>
+                                <input type="email" id="contactEmail" name="email" placeholder="e.g. jane@example.com" required autocomplete="email">
+                                <span class="form-error-msg">Please enter a valid email address.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactSubject">Subject <span class="required-star">*</span></label>
+                            <input type="text" id="contactSubject" name="subject" placeholder="e.g. Book Launch Marketing Inquiry" required>
+                            <span class="form-error-msg">Please enter a subject for your message.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Your Message <span class="required-star">*</span></label>
+                            <textarea id="contactMessage" name="message" placeholder="Tell us about your book, your publishing timeline, and the kind of marketing support you are looking for..." required></textarea>
+                            <span class="form-error-msg">Please enter your message.</span>
+                        </div>
+
+                        <div class="form-submit-row">
+                            <button type="submit" class="form-submit-btn" id="formSubmitBtn">
+                                <span class="btn-label">Send Your Message</span>
+                                <span class="btn-arrow">→</span>
+                                <span class="spinner"></span>
+                            </button>
+                        </div>
+
+                        <div class="form-feedback" id="formFeedback"></div>
+                    </form>
+                </div>
+
+                <!-- Contact Sidebar -->
+                <div class="contact-sidebar anim-in from-right">
+
+                    <!-- Photo -->
+                    <div class="contact-photo-frame">
+                        <img src="MyPhoto.png" alt="Teny Dave — Founder and Book Marketing Specialist">
+                        <div class="contact-photo-overlay">
+                            <div class="contact-photo-name">Teny Dave</div>
+                            <div class="contact-photo-role">Founder & Book Marketing Specialist</div>
+                        </div>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div class="contact-email-card">
+                        <h4>Prefer to Email Directly?</h4>
+                        <p>If you would rather send a message from your own email client, you are more than welcome to reach out using the address below. We read and respond to every inquiry personally.</p>
+                        <a href="mailto:contact.tenydave18@gmail.com" class="contact-email-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                            contact.tenydave18@gmail.com
+                        </a>
+                    </div>
+
+                    <!-- Note -->
+                    <div class="contact-note">
+                        <p>"I believe that every author's story deserves to be seen and heard. Reaching out is the first step toward giving your book the marketing attention it truly deserves. I look forward to hearing from you."</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Closing -->
+    <section class="contact-closing">
+        <div class="container">
+            <div class="contact-closing-inner anim-in">
+                <span class="section-label">We're Here to Help</span>
+                <h2>Your Book Deserves to Be Seen</h2>
+                <p>Whether you have a detailed marketing plan in mind or are simply beginning to explore your options, we are here to listen, advise, and support you every step of the way. There is no obligation and no pressure — just a genuine conversation about how we can help your book reach the readers it was written for.</p>
+                <p>We look forward to learning about your project and exploring how professional book marketing can make a meaningful difference in your publishing journey.</p>
+                <p class="contact-closing-email">You can also reach us anytime at <a href="mailto:contact.tenydave18@gmail.com">contact.tenydave18@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img src="Logo.png" alt="Teny Dave Book Marketing Logo">
+                        <span class="nav-logo-text">Teny Dave</span>
+                    </a>
+                    <p>Professional book marketing services for independent authors, self-published writers, and debut storytellers. We help authors build visibility, strengthen their brands, and connect their books with the right readers.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Book Marketing Strategy</a></li>
+                        <li><a href="services.html">Author Branding</a></li>
+                        <li><a href="services.html">Book Launch Marketing</a></li>
+                        <li><a href="services.html">Social Media Marketing</a></li>
+                        <li><a href="services.html">Content Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A87945" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                        <a href="mailto:contact.tenydave18@gmail.com">contact.tenydave18@gmail.com</a>
+                    </div>
+                    <p class="footer-contact-note">We communicate exclusively through email. Send us a message anytime and we will respond promptly.</p>
+                    <a href="contact-us.html" class="btn-text" style="margin-top: 14px;">Send an Inquiry <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Teny Dave Book Marketing. All rights reserved.</p>
+                <p>Professional Book Marketing Services</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ===== PAGE TRANSITION ===== */
+        var pt = document.getElementById('pageTransition');
+        document.querySelectorAll('a[href$=".html"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var href = link.getAttribute('href');
+                if (href && href.indexOf('http') !== 0 && href.indexOf('mailto:') !== 0) {
+                    var current = window.location.pathname.split('/').pop() || 'index.html';
+                    if (href === current) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+                    e.preventDefault();
+                    if (pt) pt.classList.add('active');
+                    setTimeout(function() { window.location.href = href; }, 400);
+                }
+            });
+        });
+        window.addEventListener('load', function() { if (pt) pt.classList.remove('active'); });
+
+        /* ===== HEADER SCROLL ===== */
+        var header = document.getElementById('siteHeader');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 60) { header.classList.add('scrolled'); }
+            else { header.classList.remove('scrolled'); }
+        }, { passive: true });
+
+        /* ===== MOBILE NAV ===== */
+        var mobileToggle = document.getElementById('mobileMenuToggle');
+        var mobileNav = document.getElementById('mobileNav');
+        mobileToggle.addEventListener('click', function() {
+            this.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+        mobileNav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileToggle.classList.remove('open');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        /* ===== HERO ANIMATIONS ===== */
+        (function() {
+            var heading = document.getElementById('pageHeroHeading');
+            if (heading) {
+                var text = heading.textContent.trim();
+                var words = text.split(/\s+/);
+                heading.innerHTML = words.map(function(w) {
+                    return '<span class="hero-word">' + w + '</span>';
+                }).join(' ');
+                var heroWords = heading.querySelectorAll('.hero-word');
+                heroWords.forEach(function(word, i) {
+                    setTimeout(function() { word.classList.add('visible'); }, 300 + i * 55);
+                });
+            }
+            var breadcrumb = document.getElementById('heroBreadcrumb');
+            var subtitle = document.getElementById('pageHeroSubtitle');
+            var heroLine = document.getElementById('pageHeroLine');
+            setTimeout(function() { if (breadcrumb) breadcrumb.classList.add('visible'); }, 200);
+            setTimeout(function() { if (subtitle) subtitle.classList.add('visible'); }, 800);
+            setTimeout(function() { if (heroLine) heroLine.classList.add('visible'); }, 1000);
+        })();
+
+        /* ===== SCROLL REVEAL ===== */
+        (function() {
+            var animEls = document.querySelectorAll('.anim-in');
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+                animEls.forEach(function(el) { observer.observe(el); });
+            } else {
+                animEls.forEach(function(el) { el.classList.add('visible'); });
+            }
+        })();
+
+        /* ===== CONTACT FORM — REAL FORMSPREE SUBMISSION ===== */
+        (function() {
+            var form = document.getElementById('contactForm');
+            var submitBtn = document.getElementById('formSubmitBtn');
+            var feedback = document.getElementById('formFeedback');
+
+            if (!form) return;
+
+            // Clear individual field errors on input
+            form.querySelectorAll('input, textarea').forEach(function(field) {
+                field.addEventListener('input', function() {
+                    var group = field.closest('.form-group');
+                    if (group) {
+                        group.classList.remove('has-error');
+                        field.classList.remove('error');
+                    }
+                    // Hide overall feedback when user starts editing again
+                    feedback.className = 'form-feedback';
+                    feedback.textContent = '';
+                });
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Reset previous state
+                feedback.className = 'form-feedback';
+                feedback.textContent = '';
+                var hasError = false;
+
+                // Validate required fields
+                var nameField = document.getElementById('contactName');
+                var emailField = document.getElementById('contactEmail');
+                var subjectField = document.getElementById('contactSubject');
+                var messageField = document.getElementById('contactMessage');
+
+                [nameField, emailField, subjectField, messageField].forEach(function(field) {
+                    var group = field.closest('.form-group');
+                    if (!field.value.trim()) {
+                        group.classList.add('has-error');
+                        field.classList.add('error');
+                        hasError = true;
+                    } else {
+                        group.classList.remove('has-error');
+                        field.classList.remove('error');
+                    }
+                });
+
+                // Extra email format check
+                if (emailField.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim())) {
+                    emailField.closest('.form-group').classList.add('has-error');
+                    emailField.classList.add('error');
+                    hasError = true;
+                }
+
+                if (hasError) {
+                    feedback.className = 'form-feedback error';
+                    feedback.textContent = 'Please fill in all required fields correctly before submitting.';
+                    return;
+                }
+
+                // Disable button and show spinner
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                // Submit to Formspree via fetch
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function(response) {
+                    if (response.ok) {
+                        feedback.className = 'form-feedback success';
+                        feedback.textContent = 'Thank you for reaching out. Your message has been received successfully, and we will respond to your inquiry as soon as possible. We look forward to learning more about your book and your marketing goals.';
+                        form.reset();
+                    } else {
+                        return response.json().then(function(data) {
+                            var errorMsg = 'Something went wrong while sending your message. ';
+                            if (data && data.errors && data.errors.length > 0) {
+                                errorMsg += data.errors.map(function(err) { return err.message; }).join(', ');
+                            } else {
+                                errorMsg += 'Please try again or email us directly at contact.tenydave18@gmail.com.';
+                            }
+                            feedback.className = 'form-feedback error';
+                            feedback.textContent = errorMsg;
+                        }).catch(function() {
+                            feedback.className = 'form-feedback error';
+                            feedback.textContent = 'Something went wrong while sending your message. Please try again or email us directly at contact.tenydave18@gmail.com.';
+                        });
+                    }
+                })
+                .catch(function() {
+                    feedback.className = 'form-feedback error';
+                    feedback.textContent = 'We were unable to send your message due to a connection issue. Please check your internet connection and try again, or email us directly at contact.tenydave18@gmail.com.';
+                })
+                .finally(function() {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
